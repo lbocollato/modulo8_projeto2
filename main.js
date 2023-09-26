@@ -15,16 +15,22 @@ function adicionaLinha(){
     const inputNomeContato = document.getElementById('nome-agenda');
     const inputNumeroContato = document.getElementById('numero-agenda');
 
-    nomes.push(inputNomeContato.value);
-    telefones.push(inputNumeroContato.value);
+    if(telefones.includes(inputNumeroContato.value)){
+        alert(`O número: ${inputNumeroContato.value} já foi salvo.`)
+    }else{
+        nomes.push(inputNomeContato.value);
+        telefones.push(inputNumeroContato.value);
 
-    let linha = '<tr>';
-    linha += `<td>${nomes.length}</td>`;
-    linha += `<td>${inputNomeContato.value}</td>`;
-    linha += `<td>${inputNumeroContato.value}</td>`;
-    linha +='</tr>';
+        let linha = '<tr>';
+        linha += `<td>${nomes.length}</td>`;
+        linha += `<td>${inputNomeContato.value}</td>`;
+        linha += `<td>${inputNumeroContato.value}</td>`;
+        linha +='</tr>';
 
-    linhas += linha;
+        linhas += linha;
+    }
+    
+    
 
     inputNomeContato.value = '';
     inputNumeroContato.value = '';
